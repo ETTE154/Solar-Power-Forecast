@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+   Tessellate by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+   <head>
+      <title>태양광 발전량 예측 서비스</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="static/assets/css/main.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+      <i class="fas fa-solid fa-droplet"></i>
+   </head>
+
+   <body class="is-preload">
+
+      <!-- Header -->
+         <section id="header" class="dark">
+            <header>
+               <h1 style="color:black; !important"><B>Welcome to the Solar Power Generation Forecasting Service.</B></h1>
+               <h2>(태양광 발전량 예측 서비스에 오신 것을 환영합니다.)</h2>
+            </header>
+            <footer>
+               <a href="#first" class="button scrolly" style="color:black;"><B style="color:black;">Start Prediction Service</B><br>(예측 서비스 시작)</a>
+            </footer>
+         </section>
+
+      <!-- First -->
+         <section id="first" class="main">
+            <header>
+               <div class="container">
+                  <h2><B> Solar Power Generation Forecasting</B> </h2>
+                  <p>태양광 발전량 예측을 통해 발전 시스템 운영 사업자의 수익 최대화 및 신재생 에너지 예측시장 참여 활성화를 도모하고 있습니다.</p>
+               </div>
+            </header>
+            <div class="content dark style1 featured" style="background-image: url('static/images/cloud.jpg')">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-4 col-12-narrow">
+                        <section>
+                           <span><i class="fas fa-cloud-rain fa-5x"></i></span>
+                           <br>
+                           <header>
+                              <h3><B>Humidity</B></h3>
+                              <h4>(습도)</h4>
+                              <form method="post">
+                              <input type="text" name="습기">
+
+                           <p style="font-size:15px; color:black;">습도란 공기 중에 포함된 수증기의 양 또는 비율을 나타내는 단위를 말합니다. </p>
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow">
+                        <section>
+                           <span><i class="fas fa-sun fa-5x"></i></span>
+                           <header>
+                              <h3><B>Sunshine</B></h3>
+                              <h4>(일조량)</h4>
+                              <input type="text" name="일조량">
+                           </header>
+                           <p style="font-size:15px; color:black;">일조량(日照量)은 일정한 물체나 땅의 겉면에 비치는 태양 광선의 양을 이르는 말입니다.</p>
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow">
+                        <section>
+                           <span><i class="fas fa-cloud fa-5x"></i></span>
+                           <header>
+                              <h3><B>Cloud_Cover</B></h3>
+                              <h4>(전운량-10분위)</h4>
+                              <input type="text" name="전운량">
+                           </header>
+                           <p style="font-size:15px; color:black;">하늘에 떠있는 모든 구름의 양을 하늘을 덮은 정도에 따라 0 ~ 11까지 나타낸 수치를 전운량이라고 합니다.</p>
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow" style="float:left">
+                        <section>
+                           <span><i class="fas fa-cloud fa-5x"></i></span>
+                           <header>
+                              <h3><B>Lower Middle Cloud</B></h3>
+                              <h4>(중하층운량-10분위)</h4>
+                              <input type="text" name="중하층운량">
+                           </header>
+                           <p style="font-size:15px; color:black;"> 중층과 하층에 있는 구름의 분포량을 나타내는 수치를 중하층운량이라고 합니다.</p>
+                        </section>
+                     </div>
+                     <div class="col-12">
+                        <footer>
+                           <Button type="submit" name="submit" class="button scrolly"><B>Start Prediction!</B></Button>
+                           </form></header>
+                        </footer>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+      <!-- Second -->
+         <section id="second" class="main">
+            <header>
+               <div class="container">
+                  <h2><B>Prediction Result</B></h2>
+                  <p>Based on the data you provide, we make a forecast for solar power generation.<br>(제공한 데이터를 기반으로 태양광 발전량을 예측을 합니다.)</p>
+               </div>
+            </header>
+            <div class="content dark style2">
+               <div class="container">
+                        <section>
+                           <h3><B>Solar Power Generation According to Forecast</B></h3>
+                           <h1>예측에 따른 태양광 발전량</h1>
+                           <div class="row">
+                           <div class="col-4 col-12-narrow">
+                        <section>
+                           <header>
+                              <h3>Elastic Net Model</h3>
+                              <h4>(엘라스틱 넷)</h4>
+                           </header>
+                     {% if ela %}
+                           <p><B>Prediction : {{ela}}W</B></p>
+                     {% endif %}
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow">
+                        <section>
+                           <header>
+                              <h3>Random Forest Model</h3>
+                              <h4>(랜덤 포레스트)</h4>
+                           </header>
+                     {% if rf %}
+                           <p><B>Prediction : {{rf}}W </B></p>
+                     {% endif %}
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow">
+                        <section>
+                           <header>
+                              <h3>Polynomial Model</h3>
+                              <h4>(다항 회귀)</h4>
+                           </header>
+                     {% if poly %}
+                           <p><B>Prediction : {{poly}}W</B></p>
+                     {% endif %}
+                        </section>
+                     </div>
+                     <div class="col-4 col-12-narrow" style="float:left">
+                        <section>
+                           <header>
+                              <h3>K-Means Model</h3>
+                              <h4>(K-평균)</h4>
+                           </header>
+                     {% if k_means %}
+                           <p><B>Prediction : {{k_means}}W</B></p>
+                     {% endif %}
+                        </section>
+                     </div>
+                           </div>
+                           <footer>
+                              <a href="#third" class="button scrolly">About Us</a>
+                           </footer>
+                        </section>
+               </div>
+            </div>
+         </section>
+
+      <!-- Third -->
+         <section id="third" class="main">
+            <header>
+               <div class="container">
+                  <h2><B>Introduction to Team 1 Topic</B></h2>
+                  <p>온실 가스의 증가 등으로 인한 글로벌 기후위기로 탄소배출 및 에너지 문제의 중요성이 전 세계적으로 대두되고 있으며 국내에서도 2050년까지 탄소중립을 달성하겠다는 목표에 따라 가장 핵심적인 기술 중 하나가 재생 에너지 예보이다. 태양광 발전량 예측은 사전에 전력의 가격을 결정하는데
+                     도움이 될 수 있으며 정확한 장기간 태양광 발전량을 예측하는 것은 태양광 발전 시스템 운영 사업자의 수익을 최대화하기 위해 매우 중요하다.<br />
+                     <br>
+                  <a href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11179166" target="_blank">Papers Referenced</a>
+               </div>
+            </header>
+         </section>
+
+
+      <!-- Scripts -->
+         <script src="static/assets/js/jquery.min.js"></script>
+         <script src="static/assets/js/jquery.scrolly.min.js"></script>
+         <script src="static/assets/js/browser.min.js"></script>
+         <script src="static/assets/js/breakpoints.min.js"></script>
+         <script src="static/assets/js/util.js"></script>
+         <script src="static/assets/js/main.js"></script>
+
+   </body>
+</html>
